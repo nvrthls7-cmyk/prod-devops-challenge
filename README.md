@@ -39,3 +39,32 @@ SPRING_DATASOURCE_URL=jdbc:postgresql://postgres:5432/kanbandb
 SPRING_DATASOURCE_USERNAME=postgres
 SPRING_DATASOURCE_PASSWORD=postgres
 SERVER_PORT=8085
+
+```
+
+## Run with Docker Compose
+
+Starts PostgreSQL, backend, and frontend together.
+
+```
+docker compose up --build
+```
+Services
+```
+Frontend: http://localhost:3001
+
+Backend API: http://localhost:8085
+```
+PostgreSQL: Internal Docker network (not exposed)
+
+
+API Endpoints
+```
+GET /api/tasks
+
+POST /api/tasks
+
+PUT /api/tasks/{id}
+
+DELETE /api/tasks/{id}
+```
