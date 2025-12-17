@@ -1,7 +1,9 @@
 import React, { useEffect, useState, useCallback } from 'react'
 
-const BASE_URL = "/api";
-const API = `${BASE_URL}/api/tasks`;
+// const BASE_URL = "/api";
+// // const API = `${BASE_URL}/api/tasks`;
+
+const API = "/api/tasks";
 
 function Column({ title, tasks, onDropTask, onDelete }) {
   return (
