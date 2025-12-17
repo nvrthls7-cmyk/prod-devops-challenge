@@ -1,36 +1,45 @@
-# Kanban App (Node.js frontend + Spring Boot backend + PostgreSQL)
+# Kanban App (React + Spring Boot + PostgreSQL)
 
-Overview
-- Frontend: Vite + React (Node.js)
-- Backend: Spring Boot (Java, Maven) running on port 8085
-- Database: PostgreSQL running in Docker (docker-compose)
+A simple Kanban board application built with a React (Vite) frontend, Spring Boot backend, and PostgreSQL database.  
+Designed to run locally with Docker Compose and deploy cleanly to Kubernetes.
 
-Run
+---
 
-1) Start PostgreSQL:
+## Tech Stack
+
+- **Frontend**: React (Vite), served via NGINX
+- **Backend**: Spring Boot (Java 17, Maven), runs on port `8085`
+- **Database**: PostgreSQL 15
+- **Containerization**: Docker & Docker Compose
+- **Production-ready**: Kubernetes / EKS compatible
+
+---
+
+## Prerequisites
+
+- Docker & Docker Compose
+- Java 17 (only if running backend without Docker)
+- Node.js >= 16 (only if running frontend without Docker)
+
+---
+
+## Environment Configuration (IMPORTANT)
+
+Secrets and configuration are **not committed** to GitHub.
+
+### Create `.env` file (at project root)
 
 ```bash
-docker-compose up -d
-```
+cp .env.example .env
 
-This will start Postgres on port 5432 with database `kanbandb` and user `postgres` / password `postgres`.
 
-2) Run backend (requires Java 17 and Maven):
+an example here!!!!!
 
-```bash
-cd backend
-mvn spring-boot:run
-```
+POSTGRES_DB=kanbandb
+POSTGRES_USER=postgres
+POSTGRES_PASSWORD=postgres
 
-Backend will start on port 8085.
-
-3) Run frontend (requires Node.js >=16):
-
-```bash
-cd frontend
-npm install
-npm run dev
-```
-
-Notes
-- If port 8085 is in use, change `server.port` in `backend/src/main/resources/application.properties`.
+SPRING_DATASOURCE_URL=jdbc:postgresql://postgres:5432/kanbandb
+SPRING_DATASOURCE_USERNAME=postgres
+SPRING_DATASOURCE_PASSWORD=postgres
+SERVER_PORT=8085
